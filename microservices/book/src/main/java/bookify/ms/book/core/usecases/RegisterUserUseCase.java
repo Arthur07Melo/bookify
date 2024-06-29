@@ -4,12 +4,12 @@ import bookify.ms.book.core.domain.Role;
 import bookify.ms.book.core.domain.User;
 import bookify.ms.book.core.dtos.UserDTO;
 import bookify.ms.book.core.exceptions.EmailAlreadyExistsException;
-import bookify.ms.book.core.gateways.UserGateway;
+import bookify.ms.book.core.gateways.UsersGateway;
 
 public class RegisterUserUseCase {
-    private UserGateway userGateway;
+    private UsersGateway userGateway;
 
-    public RegisterUserUseCase(UserGateway userGateway) {
+    public RegisterUserUseCase(UsersGateway userGateway) {
         this.userGateway = userGateway;
     }
 
