@@ -1,0 +1,8 @@
+spring:
+    application:
+        name: book
+    datasource:
+        url: jdbc:postgresql://localhost:5432/book
+        username: docker
+        password: docker
+
