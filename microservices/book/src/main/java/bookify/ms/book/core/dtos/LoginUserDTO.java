@@ -1,7 +1,6 @@
 package bookify.ms.book.core.dtos;
 
-public record UserDTO(
-    String name,
+public record LoginUserDTO(
     String email,
     String password
 ) {
