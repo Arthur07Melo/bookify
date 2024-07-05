@@ -7,7 +7,11 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import bookify.ms.book.core.gateways.UsersGateway;
 
 public class UserDetailsServiceImpl implements UserDetailsService {
-    private UsersGateway usersGateway;
+    private final UsersGateway usersGateway;
+
+    public UserDetailsServiceImpl(UsersGateway usersGateway) {
+        this.usersGateway = usersGateway;
+    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

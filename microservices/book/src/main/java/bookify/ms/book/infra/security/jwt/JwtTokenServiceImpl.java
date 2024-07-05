@@ -4,15 +4,12 @@ import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
-import org.springframework.stereotype.Service;
-
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 
 import bookify.ms.book.core.utils.JwtTokenService;
 
-@Service
 public class JwtTokenServiceImpl implements JwtTokenService{
     private final String SECRET_KEY = "my_secret_key";
     private final String ISSUER = "microservice-book";
