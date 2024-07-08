@@ -4,7 +4,6 @@ import bookify.ms.book.core.domain.User;
 import bookify.ms.book.core.gateways.UsersGateway;
 import bookify.ms.book.data.mappers.UserMapper;
 import bookify.ms.book.data.repositories.UsersRepository;
-import lombok.extern.slf4j.Slf4j;
 
 public class UsersGatewayImpl implements UsersGateway{
     private UsersRepository usersRepository;
