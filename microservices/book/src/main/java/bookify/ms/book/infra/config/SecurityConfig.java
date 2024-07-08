@@ -1,5 +1,6 @@
 package bookify.ms.book.infra.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -18,8 +19,8 @@ import bookify.ms.book.infra.security.jwt.JwtTokenServiceImpl;
 @Configuration
 public class SecurityConfig {
     @Bean
-    JwtTokenService jwtTokenService(){
-        return new JwtTokenServiceImpl();
+    JwtTokenService jwtTokenService(@Value("${jwt.secret.key}") final String secretKey){;
+        return new JwtTokenServiceImpl(secretKey);
     }
 
     @Bean

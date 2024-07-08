@@ -11,8 +11,12 @@ import com.auth0.jwt.exceptions.JWTVerificationException;
 import bookify.ms.book.core.utils.JwtTokenService;
 
 public class JwtTokenServiceImpl implements JwtTokenService{
-    private final String SECRET_KEY = "my_secret_key";
+    private final String SECRET_KEY;
     private final String ISSUER = "microservice-book";
+
+    public JwtTokenServiceImpl(String secretKey) {
+        SECRET_KEY = secretKey;
+    }
 
     @Override
     public String generateToken(String email){

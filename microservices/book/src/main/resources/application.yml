@@ -6,3 +6,6 @@ spring:
         username: docker
         password: docker
 
+jwt:
+    secret:
+        key: ${JWT_SECRET:my_secret_key}
