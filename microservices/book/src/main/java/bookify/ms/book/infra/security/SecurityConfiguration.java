@@ -59,15 +59,11 @@ public class SecurityConfiguration {
         .build();
     }
 
-    @Bean
-    UserDetailsService userDetailsService(UsersGateway usersGateway) {
-        return new UserDetailsServiceImpl(usersGateway);
-    }
 
     @Bean
     AuthenticationProvider authenticationProvider(UsersGateway usersGateway) {
         var provider =  new DaoAuthenticationProvider();
-        provider.setUserDetailsService(userDetailsService(usersGateway));
+        provider.setUserDetailsService(new UserDetailsServiceImpl(usersGateway));
         provider.setPasswordEncoder(passwordEncoder());
         return provider;
     }
