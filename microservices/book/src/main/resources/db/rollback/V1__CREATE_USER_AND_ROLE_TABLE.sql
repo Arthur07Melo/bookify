@@ -1,0 +1,3 @@
+DROP TABLE Users;
+DROP TABLE Roles;
+DROP TABLE User_roles;

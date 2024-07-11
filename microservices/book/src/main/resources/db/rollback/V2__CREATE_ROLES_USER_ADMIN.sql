@@ -1,0 +1,1 @@
+DELETE FROM roles WHERE role_name == "ROLE_ADMIN" or role_name == "ROLE_USER";

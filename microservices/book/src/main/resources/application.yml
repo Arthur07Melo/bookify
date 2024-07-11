@@ -1,8 +1,11 @@
 spring:
     application:
-        name: book
+        name: ${APPLICATION_NAME:book}
     datasource:
-        url: jdbc:postgresql://localhost:5432/book
-        username: docker
-        password: docker
+        url: ${POSTGRES_URL:jdbc:postgresql://localhost:5432/book}
+        username: ${POSTGRES_USERNAME:docker}
+        password: ${POSTGRES_PASSWORD:docker}
 
+jwt:
+    secret:
+        key: ${JWT_SECRET:my_secret_key}
