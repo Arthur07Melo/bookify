@@ -9,3 +9,18 @@ services:
       - POSTGRES_DB=book
     ports:
       - "5432:5432"
+
+  localstack:
+    image: localstack/localstack:latest
+    volumes:
+      - ./docker/aws/init-s3.py:/etc/localstack/init/ready.d/init-s3.py
+    environment:
+      - SERVICES=s3
+      - DOCKER_HOST=unix:///var/run/docker.sock
+      - AWS_ACCESS_KEY_ID=ACCESSKEYEXAMPLE
+      - AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYSECRETKEY
+      - AWS_DEFAULT_REGION=us-east-1
+      - AWS_DEFAULT_OUTPUT=json
+    ports:
+      - "4566:4566" #s3
+      - "4572:4572" 
