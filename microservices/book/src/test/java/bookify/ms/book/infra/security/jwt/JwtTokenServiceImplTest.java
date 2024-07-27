@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 
+import bookify.ms.book.core.exceptions.InvalidOrExpiredTokenException;
+
 public class JwtTokenServiceImplTest {
     final String ISSUER = "microservice-book";
     final Algorithm ALGORITHM = Algorithm.HMAC256("test_secret_key");
@@ -25,7 +27,7 @@ public class JwtTokenServiceImplTest {
     } 
 
     @Test
-    public void testSuccessfullyDecodeToken(){
+    public void testSuccessfullyDecodeToken() throws InvalidOrExpiredTokenException{
         String expectedSubject = "teste2@teste.com";
         String encodedToken = JWT.create()
         .withIssuer(ISSUER)

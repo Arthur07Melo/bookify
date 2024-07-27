@@ -8,6 +8,7 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 
+import bookify.ms.book.core.exceptions.InvalidOrExpiredTokenException;
 import bookify.ms.book.core.utils.JwtTokenService;
 
 public class JwtTokenServiceImpl implements JwtTokenService{
@@ -35,7 +36,7 @@ public class JwtTokenServiceImpl implements JwtTokenService{
     }
 
     @Override
-    public String getSubjectFromToken(String token){
+    public String getSubjectFromToken(String token) throws InvalidOrExpiredTokenException{
         Algorithm algorithm = Algorithm.HMAC256(SECRET_KEY);
         try {
             return JWT.require(algorithm)
@@ -45,7 +46,7 @@ public class JwtTokenServiceImpl implements JwtTokenService{
             .getSubject();   
             
         } catch (Exception e) {
-            throw new JWTVerificationException("Token inválido ou expirado");
+            throw new InvalidOrExpiredTokenException();
         }
     }
 
