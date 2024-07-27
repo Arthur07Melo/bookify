@@ -9,3 +9,14 @@ spring:
 jwt:
     secret:
         key: ${JWT_SECRET:my_secret_key}
+
+cloud:
+    aws:
+        accesskey: "ACCESSKEYEXAMPLE"
+        secretkey: "wJalrXUtnFEMI/K7MDENG/bPxRfiCYSECRETKEY"
+        region: us-east-1
+        s3:
+            endpoint: http://localhost:4566
+            bucketname: books
+            
+        
